@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+
+class Student {
+    private String name;
+    private int numScores;
+    private int highestScore;
+    private int lowestScore;
+    private double averageScore;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    // Accessor methods
+    public String getName() {
+        return name;
+    }
+
+    public int getNumScores() {
+        return numScores;
+    }
+
+    public int getHighestScore() {
+        return highestScore;
+    }
+
+    public int getLowestScore() {
+        return lowestScore;
+    }
+
+    public double getAverageScore() {
+        return averageScore;
+    }
+
+    // Mutator methods
+    public void setNumScores(int numScores) {
+        this.numScores = numScores;
+    }
+
+    public void setHighestScore(int highestScore) {
+        this.highestScore = highestScore;
+    }
+
+    public void setLowestScore(int lowestScore) {
+        this.lowestScore = lowestScore;
+    }
+
+    public void setAverageScore(double averageScore) {
+        this.averageScore = averageScore;
+    }
+}
+
+class ShowStudent {
+    public static void main(String[] args) {
+        // Create a Student object
+        Student student = new Student("John Doe");
+
+        // Input loop
+        int count = 0;
+        int sum = 0;
+        int highest = Integer.MIN_VALUE;
+        int lowest = Integer.MAX_VALUE;
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        System.out.println("Enter test scores for " + student.getName() + " (Enter 999 to finish):");
+        while (true) {
+            int score = scanner.nextInt();
+            if (score == 999) {
+                break;
+            }
+            if (score < 0 || score > 100) {
+                System.out.println("Invalid score. Score should be between 0 and 100.");
+                continue;
+            }
+            count++;
+            sum += score;
+            if (score > highest) {
+                highest = score;
+            }
+            if (score < lowest) {
+                lowest = score;
+            }
+        }
+
+        // Calculate average
+        double average = (count == 0) ? 0 : (double) sum / count;
+
+        // Set values in the Student object
+        student.setNumScores(count);
+        student.setHighestScore(highest);
+        student.setLowestScore(lowest);
+        student.setAverageScore(average);
+
+        // Display results
+        System.out.println("Number of scores: " + student.getNumScores());
+        System.out.println("Highest score: " + student.getHighestScore());
+        System.out.println("Lowest score: " + student.getLowestScore());
+        System.out.println("Average score: " + student.getAverageScore());
+
+        scanner.close();
+    }
+}
