@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Midterm4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Character methods");
+            System.out.println("2. String methods");
+            System.out.println("3. StringBuilder methods");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    characterMethods();
+                    break;
+                case 2:
+                    stringMethods();
+                    break;
+                case 3:
+                    stringBuilderMethods();
+                    break;
+                case 4:
+                    System.out.println("Exiting program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 4);
+    }
+
+    public static void characterMethods() {
+        char ch = 'A';
+        System.out.println("Character methods:");
+        System.out.println("IsUpperCase('A'): " + Character.isUpperCase(ch));
+        System.out.println("toUpperCase('a'): " + Character.toUpperCase(ch));
+        System.out.println("toLowerCase('A'): " + Character.toLowerCase(ch));
+        System.out.println("isDigit('5'): " + Character.isDigit('5'));
+        System.out.println("isLetter('A'): " + Character.isLetter('A'));
+        System.out.println("isLetterOrDigit('#'): " + Character.isLetterOrDigit('#'));
+        System.out.println("isWhitespace(' '): " + Character.isWhitespace(' '));
+    }
+
+    public static void stringMethods() {
+        String str1 = "hello";
+        String str2 = "world";
+        System.out.println("String methods:");
+        System.out.println("equals(): " + str1.equals(str2));
+        System.out.println("length(): " + str1.length());
+        System.out.println("compareTo(): " + str1.compareTo(str2));
+        System.out.println("charAt(0): " + str1.charAt(0));
+        System.out.println("indexOf('e'): " + str1.indexOf('e'));
+        System.out.println("endsWith('o'): " + str1.endsWith("o"));
+        System.out.println("startsWith('h'): " + str1.startsWith("h"));
+        System.out.println("replace('l', 'L'): " + str1.replace('l', 'L'));
+        System.out.println("toString(): " + str1.toString());
+        System.out.println("regionMatches(): " + str1.regionMatches(0, str2, 0, 3));
+        System.out.println("parseInt('10'): " + Integer.parseInt("10"));
+        System.out.println("toLowerCase(): " + str1.toLowerCase());
+        System.out.println("toUpperCase(): " + str1.toUpperCase());
+    }
+
+    public static void stringBuilderMethods() {
+        StringBuilder sb = new StringBuilder("Hello");
+        System.out.println("StringBuilder methods:");
+        sb.append(" World");
+        System.out.println("append(): " + sb);
+        sb.insert(5, "Beautiful ");
+        System.out.println("insert(): " + sb);
+        System.out.println("capacity(): " + sb.capacity());
+        sb.setLength(5);
+        System.out.println("setLength(): " + sb);
+        sb.setCharAt(0, 'h');
+        System.out.println("setCharAt(): " + sb);
+    }
+}
