@@ -1,0 +1,88 @@
+Here's a Java program that demonstrates the mentioned methods of Character, String, and StringBuilder classes through a menu-driven interface:
+
+```java
+import java.util.Scanner;
+
+public class Midterm4YourName {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Character Methods");
+            System.out.println("2. String Methods");
+            System.out.println("3. StringBuilder Methods");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    characterMethodsDemo();
+                    break;
+                case 2:
+                    stringMethodsDemo();
+                    break;
+                case 3:
+                    stringBuilderMethodsDemo();
+                    break;
+                case 4:
+                    System.out.println("Exiting the program.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 4);
+        
+        scanner.close();
+    }
+
+    public static void characterMethodsDemo() {
+        char ch = 'A';
+        System.out.println("Character Methods Demo:");
+        System.out.println("isUpperCase('A'): " + Character.isUpperCase(ch));
+        System.out.println("toUpperCase('a'): " + Character.toUpperCase(ch));
+        System.out.println("isDigit('9'): " + Character.isDigit('9'));
+        System.out.println("isLetter('A'): " + Character.isLetter('A'));
+        System.out.println("isLetterOrDigit(' '): " + Character.isLetterOrDigit(' '));
+        System.out.println("isWhitespace(' '): " + Character.isWhitespace(' '));
+    }
+
+    public static void stringMethodsDemo() {
+        String str1 = "Hello";
+        String str2 = "hello";
+        String str3 = "World";
+        System.out.println("String Methods Demo:");
+        System.out.println("equals(): " + str1.equals(str2));
+        System.out.println("length(): " + str1.length());
+        System.out.println("compareTo(): " + str1.compareTo(str3));
+        System.out.println("charAt(1): " + str1.charAt(1));
+        System.out.println("indexOf('l'): " + str1.indexOf('l'));
+        System.out.println("endsWith('o'): " + str1.endsWith("o"));
+        System.out.println("startsWith('H'): " + str1.startsWith("H"));
+        System.out.println("replace('l', 'x'): " + str1.replace('l', 'x'));
+        System.out.println("toString(): " + str1.toString());
+        System.out.println("regionMatches(0, 'hello', 0, 3): " + str1.regionMatches(0, "hello", 0, 3));
+        System.out.println("parseInt('10'): " + Integer.parseInt("10"));
+        System.out.println("toLowerCase(): " + str1.toLowerCase());
+        System.out.println("toUpperCase(): " + str1.toUpperCase());
+    }
+
+    public static void stringBuilderMethodsDemo() {
+        StringBuilder sb = new StringBuilder("Hello");
+        System.out.println("StringBuilder Methods Demo:");
+        System.out.println("append(' World'): " + sb.append(" World"));
+        System.out.println("insert(5, ' Java'): " + sb.insert(5, " Java"));
+        System.out.println("capacity(): " + sb.capacity());
+        System.out.println("setLength(10): ");
+        sb.setLength(10);
+        System.out.println(sb);
+        System.out.println("setCharAt(6, '!'): ");
+        sb.setCharAt(6, '!');
+        System.out.println(sb);
+    }
+}
+```
+
+Replace "YourName" with your actual name. This program provides a menu-driven interface for the user to choose which set of methods to demonstrate.
