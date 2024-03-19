@@ -1,0 +1,117 @@
+Apologies for the oversight. Let's make the program fully interactive and ensure all methods work correctly. Here's the revised version:
+
+```java
+import java.util.Scanner;
+
+public class Midterm4YourName {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Character Methods");
+            System.out.println("2. String Methods");
+            System.out.println("3. StringBuilder Methods");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    characterMethodsDemo(scanner);
+                    break;
+                case 2:
+                    stringMethodsDemo(scanner);
+                    break;
+                case 3:
+                    stringBuilderMethodsDemo(scanner);
+                    break;
+                case 4:
+                    System.out.println("Exiting the program.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 4);
+        
+        scanner.close();
+    }
+
+    public static void characterMethodsDemo(Scanner scanner) {
+        System.out.print("Enter a character: ");
+        char ch = scanner.next().charAt(0);
+        System.out.println("Character Methods Demo:");
+        System.out.println("isUpperCase(" + ch + "): " + Character.isUpperCase(ch));
+        System.out.println("toUpperCase(" + ch + "): " + Character.toUpperCase(ch));
+        System.out.println("isDigit(" + ch + "): " + Character.isDigit(ch));
+        System.out.println("isLetter(" + ch + "): " + Character.isLetter(ch));
+        System.out.println("isLetterOrDigit(" + ch + "): " + Character.isLetterOrDigit(ch));
+        System.out.println("isWhitespace(" + ch + "): " + Character.isWhitespace(ch));
+    }
+
+    public static void stringMethodsDemo(Scanner scanner) {
+        System.out.print("Enter a string: ");
+        String str1 = scanner.next();
+        System.out.println("String Methods Demo:");
+        System.out.println("length(" + str1 + "): " + str1.length());
+        System.out.print("Enter another string for comparison: ");
+        String str2 = scanner.next();
+        System.out.println("equals(" + str1 + ", " + str2 + "): " + str1.equals(str2));
+        System.out.println("compareTo(" + str1 + ", " + str2 + "): " + str1.compareTo(str2));
+        System.out.print("Enter an index to retrieve character: ");
+        int index = scanner.nextInt();
+        System.out.println("charAt(" + index + "): " + str1.charAt(index));
+        System.out.print("Enter a character to find its index: ");
+        char ch = scanner.next().charAt(0);
+        System.out.println("indexOf(" + ch + "): " + str1.indexOf(ch));
+        System.out.print("Enter a suffix to check if string ends with: ");
+        String suffix = scanner.next();
+        System.out.println("endsWith(" + suffix + "): " + str1.endsWith(suffix));
+        System.out.print("Enter a prefix to check if string starts with: ");
+        String prefix = scanner.next();
+        System.out.println("startsWith(" + prefix + "): " + str1.startsWith(prefix));
+        System.out.print("Enter a character to replace in the string: ");
+        char oldChar = scanner.next().charAt(0);
+        System.out.print("Enter a character to replace with: ");
+        char newChar = scanner.next().charAt(0);
+        System.out.println("replace(" + oldChar + ", " + newChar + "): " + str1.replace(oldChar, newChar));
+        System.out.println("toString(" + str1 + "): " + str1.toString());
+        System.out.print("Enter a substring to check if it matches a region of the string: ");
+        String subStr = scanner.next();
+        System.out.println("regionMatches(" + subStr + "): " + str1.regionMatches(0, subStr, 0, subStr.length()));
+        System.out.print("Enter a string to parse as an integer: ");
+        String intStr = scanner.next();
+        System.out.println("parseInt(" + intStr + "): " + Integer.parseInt(intStr));
+        System.out.println("toLowerCase(" + str1 + "): " + str1.toLowerCase());
+        System.out.println("toUpperCase(" + str1 + "): " + str1.toUpperCase());
+    }
+
+    public static void stringBuilderMethodsDemo(Scanner scanner) {
+        System.out.print("Enter a string: ");
+        String str = scanner.next();
+        StringBuilder sb = new StringBuilder(str);
+        System.out.print("Enter a string to append: ");
+        String appendStr = scanner.next();
+        System.out.println("append(" + appendStr + "): " + sb.append(appendStr));
+        System.out.print("Enter an index to insert at: ");
+        int index = scanner.nextInt();
+        System.out.print("Enter a string to insert: ");
+        String insertStr = scanner.next();
+        System.out.println("insert(" + index + ", " + insertStr + "): " + sb.insert(index, insertStr));
+        System.out.println("capacity(): " + sb.capacity());
+        System.out.print("Enter a new length for the string: ");
+        int length = scanner.nextInt();
+        sb.setLength(length);
+        System.out.println("setLength(" + length + "): " + sb);
+        System.out.print("Enter an index to set character at: ");
+        int charIndex = scanner.nextInt();
+        System.out.print("Enter a character to set: ");
+        char ch = scanner.next().charAt(0);
+        sb.setCharAt(charIndex, ch);
+        System.out.println("setCharAt(" + charIndex + ", " + ch + "): " + sb);
+    }
+}
+```
+
+Now, each method will prompt the user for input and then display the result accordingly.
